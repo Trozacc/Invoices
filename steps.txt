@@ -1,0 +1,169 @@
+
+Creaating a Box i.e Venv
+python -m venv Venv
+
+step 2 
+inside a box
+1 Activate the venv by activation file in Scripts in venv
+venv\Scripts\activate
+
+
+step 3 
+install django
+
+step4 
+verification
+python -m django --version 
+
+activate the venv after reopeaning the laptop
+
+-------------------------------------------------------
+Building Or Structure Of Project (Hospital)
+
+startproject(worker)
+
+1. django-admin startproject mysite(projectname) .
+django-admin ->
+startproject -> new project building
+django-admin startproject mysite.(project_name here)
+
+2. runserver
+syn : python manage.py runserver
+
+-----------------------------------------------------
+Structire of app in the project 
+
+1. Creating App using manage.py
+python manage.py startapp invoices(AppName)
+
+2. After creating the app make sure u add the name of it in the 
+(INSTALLED APPS) in settings.py 
+
+---------------------------------------------------------
+
+Phase 2 Urls And Views
+
+cycle process :
+URL Routing -> views -> class -> fullcycle
+
+views :
+function based views and Class baseed views
+
+process as follos:
+request Get/Post -> urls routes the request to view -> view searches for function -> function executes renders or updates the data based on request type 
+
+-------------------------------------------------------------------------------------------------------
+
+Phase 3 :: Templates and Static files 
+Ex : Journalist and NewsPAper designer
+Jouranalist (view) :- gives data to designer
+designer (templates) ;- set the data into the design of newspaper and publish
+ 
+Templates (Django Template Language DTL)
+use variables ,use tags ,use filters in html file
+
+variables -> {{ variables }}
+
+tags -> {% tags %}
+
+filters -> {{ variable_name | filter_name }}
+
+
+-------------
+Template Inheritance
+parent html file (base.html):
+A header and footer common for all pages like Home, signup , pages 
+
+other are child html files which all """extends""" the base,html file
+
+-------------
+Static folder 
+This folder has static css for the base.html( parent page)
+as {% load static%}
+and link with link style part with static keyword and path of css folder 
+
+-----------------------------------------------------------------------------------
+
+Models and Orm
+
+Models are used to tell django to store the data in database  
+
+models are the blur print of the house going to made and the migration folder is the workers going to made the house
+command1 : python manage.py makemigrations 
+this command checks the models and tell the instructions to the makemigrations
+command2 : python manage.py migrate 
+
+
+ORM (Object Relation mapper)
+it is a layer that translates the python code and converts it into sql query
+and talks to the database
+
+This are the methods which returns the collection of creation  , get , filter in views.py
+
+Note : Objects are the dict variables through which we are iterate named as "context_object" in view fields
+compare your file and the project files views section for better understanding
+
+
+---------------------------------------------------------------------------------------------------
+Django admin Panel (admin file)
+
+1.Admin registration 
+create a super user first by this command:
+python manage.py createsuperuser
+
+2.custom Admin
+3.filters (search , list , etc(Explore more from the notes))
+
+------------------------------------------------------------------------
+Forms / Validation
+
+Meta innerclass:
+config settings for forms 
+
+
+clean method :
+checking fields in the blurprint is_valid or not 
+its a method/function that helps to validate entries 
+
+so many can be added need to Explore
+
+
+Note : The classview execites with the name of the model and the view at a time while declaring the class 
+       for ex :- InvoiceListView , where Invoice is model name and Listview is view name
+
+
+==================================================================================================================
+
+Generic Class BAsed views
+alswys there in any of the app nedd to create every time to perform CRUD operations
+
+Create -> CreateView
+Read -> Listview / DetailView
+Update -> UpdateView
+Delete -> DeleteView
+
+
+=======================================================================================================
+Authentication Establishment
+
+1. Custom User Model
+start a new app folder for auth 
+comman :- python manage.py startapp app_name
+
+init go to models to create one for auth page
+
+After import the required model templates
+
+then go to initial app settings and declare a variable , IMP should be as it is
+AUTH_USER_MODEL = "app_name.Class_name"  for ex here AUTH_USER_MODEL = 'accounts.CustomerUser'
+above installed APPS
+
+And add the app name into INSTALLED APPS in the same settings
+
+(Optional)we have to perform the migrations again after making the changes in the database
+If we didnt change anything in the database critically to check the forms then no need to make migrations and migrate anything
+
+
+
+Data verification (Log in / Log out) Functionality 
+
