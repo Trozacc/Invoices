@@ -10,3 +10,7 @@ media/
 staticfiles/
 .vscode/
 .idea/
+.claude/
+.kilo/
+steps.txt
+.DS_Store
