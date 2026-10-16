@@ -1,0 +1,15 @@
+1. Models (tables)     → Define data structure
+2. Migrations          → Create tables in DB
+3. Views               → Business logic, query models
+4. URLs                → Route requests to views
+5. Templates           → Present data from views
+6. Static files        → CSS/JS/assets
+
+
+
+Why this order:
+
+Models are the foundation - everything depends on data structure
+Views need models to query/filter data
+Templates need views to pass context
+You can test models/views in shell/admin before building UI

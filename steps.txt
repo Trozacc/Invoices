@@ -38,6 +38,23 @@ python manage.py startapp invoices(AppName)
 
 2. After creating the app make sure u add the name of it in the 
 (INSTALLED APPS) in settings.py 
+-----------------------------------------------------------------------------------------
+Database connection 
+create an .env file manaually in level of manage.py 
+set all configs like this :
+        # MySQL Database Configuration
+              DB_NAME=expense_tracker_db
+              DB_USER=root
+              DB_PASSWORD="MyNewRootPass_97!"
+              DB_HOST=127.0.0.1
+              DB_PORT=3307
+
+After this make the changes in the settings.py of project also
+shift it from defalut sqlite to Mysql if required "refer New project for this"
+
+
+make sure all the connections are configured in the db also
+
 
 ---------------------------------------------------------
 
@@ -88,7 +105,7 @@ Models and Orm
 
 Models are used to tell django to store the data in database  
 
-models are the blur print of the house going to made and the migration folder is the workers going to made the house
+models are the blue print of the house going to made and the migration folder is the workers going to made the house
 command1 : python manage.py makemigrations 
 this command checks the models and tell the instructions to the makemigrations
 command2 : python manage.py migrate 
